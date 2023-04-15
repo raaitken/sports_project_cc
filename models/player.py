@@ -1,4 +1,5 @@
 class Player:
-    def __init__(self, name):
+    def __init__(self, name, id=None):
         self.name = name
+        self.id = id
         self.points = 0
