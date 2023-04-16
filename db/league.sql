@@ -11,6 +11,7 @@ CREATE TABLE games (
     id SERIAL PRIMARY KEY,
     player_one_id INT NOT NULL REFERENCES players(id),
     player_two_id INT NOT NULL REFERENCES players(id),
-    date TIMESTAMP NOT NULL,
-    result INT NOT NULL REFERENCES players(id)
+    player_one_result INT NOT NULL,
+    player_two_result INT NOT NULL,
+    date TIMESTAMP
 );

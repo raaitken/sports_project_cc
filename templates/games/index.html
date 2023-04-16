@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Games</h2>
+<section id="game-container">
+
+{% for game in games %}
+
+    <div id="game">
+    <p>{{ game.player_one.name }} {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>
+    </div>
+
+{% endfor %}
+</section>
+
+{% endblock %}

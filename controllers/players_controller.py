@@ -33,7 +33,7 @@ def edit_player(id):
 # UPDATE
 @players_blueprint.route('/players/<id>', methods=['POST'])
 def update_player(id):
-    name = request.form('name')
+    name = request.form['name']
     player = Player(name, id)
     player_repository.update(player)
     return redirect('/players')
