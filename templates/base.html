@@ -3,19 +3,14 @@
 <head>
   <title>Sports League</title>
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
-  
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
 </head>
 <body>
-<main class="flex flex--row">
+<main id="grid-container">
   <nav>
     <ul>
       <li>
-        <a href="/home">Home</a>
+        <a href="/">Home</a>
       </li>
       <li>
         <a href="/games">Games</a>
