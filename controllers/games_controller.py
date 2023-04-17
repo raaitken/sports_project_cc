@@ -30,7 +30,8 @@ def create_game():
     player_two = player_repository.select(player_two_id)
     new_game = Game(player_one, player_two, p1_result, p2_result)
     player = new_game.result()
-    player_repository.update(player)
+    player_repository.update(player[0])
+    player_repository.update(player[1])
     game_repository.save(new_game)
     return redirect('/games')
 

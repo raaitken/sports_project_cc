@@ -1,9 +1,10 @@
 from db.run_sql import run_sql
 from models.player import Player
+from models.game import Game
 
 def save(player):
-    sql = "INSERT INTO players (name, points) VALUES (%s, %s) RETURNING id"
-    values = [player.name, player.points]
+    sql = "INSERT INTO players (name, points, games_played) VALUES (%s, %s, %s) RETURNING id"
+    values = [player.name, player.points, player.games_played]
     results = run_sql(sql, values)
     id = results[0]['id']
     player.id = id
@@ -13,7 +14,7 @@ def select_all():
     sql = "SELECT * FROM players"
     results = run_sql(sql)
     for result in results:
-        player = Player(result['name'], result['points'], result['id'])
+        player = Player(result['name'], result['points'], result['games_played'], result['id'])
         players.append(player)
     
     return players
@@ -26,7 +27,7 @@ def select(id):
 
     if results:
         result = results[0]
-        player = Player(result['name'], result['points'], result['id'])
+        player = Player(result['name'], result['points'], result['games_played'], result['id'])
     
     return player
 
@@ -40,6 +41,19 @@ def delete(id):
     run_sql(sql, values)
 
 def update(player):
-    sql = "UPDATE players SET (name, points) = (%s, %s) WHERE id = %s"
-    values = [player.name, player.points, player.id]
+    sql = "UPDATE players SET (name, points, games_played) = (%s, %s, %s) WHERE id = %s"
+    values = [player.name, player.points, player.games_played, player.id]
     run_sql(sql, values)
+
+def select_games_of_player(id):
+    games = []
+    sql = "SELECT * FROM games WHERE player_one_id = %s OR player_two_id = %s"
+    values = [id, id]
+    results = run_sql(sql, values)
+    for result in results:
+        player_one = select(result['player_one_id'])
+        player_two = select(result['player_two_id'])
+        game = Game(player_one, player_two, result['player_one_result'], result['player_two_result'])
+        games.append(game)
+
+    return games

@@ -2,7 +2,6 @@ from flask import Blueprint, Flask, redirect, render_template, request
 
 from models.player import Player
 import repositories.player_repository as player_repository
-import repositories.game_repository as game_repository
 
 players_blueprint = Blueprint('players', __name__)
 
@@ -15,7 +14,7 @@ def players():
 # SHOW
 @players_blueprint.route('/players/<id>')
 def show_player(id):
-    games = game_repository.select_games_of_player(id)
+    games = player_repository.select_games_of_player(id)
     player = player_repository.select(id)
     return render_template('players/show.html', games=games, player=player)
 

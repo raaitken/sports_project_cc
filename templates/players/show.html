@@ -1,0 +1,17 @@
+<h2>{{ player.name }}</h2>
+
+<h3>Games</h3>
+<ul>
+    {% for game in games %}
+    <li>
+    {% if (game.player_one.name == player.name and game.p1_result > game.p2_result) or (game.player_two.name == player.name and game.p2_result > game.p1_result) %}
+    <div id="won" style="background-color:lightgreen">
+    {% else %}
+    <div id="loss" style="background-color:red">
+    {% endif %}
+    <p>{{ game.player_one.name }} {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>
+    </div>
+    </li>
+    
+    {% endfor %}
+</ul>

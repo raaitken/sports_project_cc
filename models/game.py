@@ -10,7 +10,9 @@ class Game:
     def result(self):
         if self.p1_result > self.p2_result:
             self.player_one.win()
-            return self.player_one
+            self.player_two.lose()
+            return [self.player_one, self.player_two]
         elif self.p1_result < self.p2_result:
             self.player_two.win()
-            return self.player_two
+            self.player_one.lose()
+            return [self.player_one, self.player_two]
