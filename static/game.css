@@ -1,0 +1,26 @@
+#game-container {
+    margin: 5px;
+}
+
+#all-games {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#game {
+    display: flex;
+    flex-flow: column;
+    background-color: #fff;
+    border: 1px solid #CDB4DB;
+    margin-right: 20px;
+    padding: 0 20px 20px 20px;
+    width: 20rem;
+    text-align: center;
+}
+
+.winner {
+    background-color: #AFE1AF;
+}
+

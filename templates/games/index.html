@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-
-<h2>Games</h2>
 <section id="game-container">
-    <a href="/games/new">New Game</a>
-
+<h2>Games</h2>
+<a href="/games/new"><button class="button new-game">New Game</button></a>
+    <div id="all-games">
 {% for game in games %}
 
     <div id="game">
-    <p>{{ game.player_one.name }} {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>
+    {% if game.p1_result > game.p2_result %}
+    <p><span class="winner">{{ game.player_one.name }}</span> {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>    
+    {% else %}
+    <p>{{ game.player_one.name }}{{game.p1_result}} - {{game.p2_result}} <span class="winner">{{game.player_two.name}}</span></p>    
+    {% endif %}
+    
     </div>
 
 {% endfor %}
+    </div>
 </section>
 
 {% endblock %}
