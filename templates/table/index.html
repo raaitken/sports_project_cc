@@ -3,18 +3,26 @@
 <h2>League Table</h2>
 <section id="table-container">
     <table>
+    <thead>
         <tr>
             <th>Player</th>
             <th>Games Played</th>
+            <th>Wins</th>
+            <th>Losses</th>
             <th>Points</th>
         </tr>
+    </thead>
+    <tbody>
     {% for player in players %}
     <tr>
-        <td>{{ player.name }}</td>
+        <th>{{ player.name }}</th>
         <td>{{ player.games_played }}</td>
+        <td>{{ player.wins}}</td>
+        <td>{{ player.losses}}</td>
         <td>{{ player.points }}</td>
     </tr>
     {% endfor %}
+    </tbody>
     </table>
 </section>
 {% endblock content %}

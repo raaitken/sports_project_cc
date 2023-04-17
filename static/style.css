@@ -1,24 +1,71 @@
 html, body, #grid-container{
     height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #edeef0;
+}
+
+nav {
+    background-color: #2b2c2d;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: #fff
 }
 
 #grid-container {
     display: grid;
-    grid-template-rows: 100px 7fr 1fr;
+    grid-area: 
+        'header'
+        'main'
+        'footer';
+    grid-template-rows: 0.5fr 7fr 0.5fr;
 }
 
+#player-container {
+    display: grid;
+    grid-template-rows: 2fr 6fr;
+    margin: 10px;
+}
 
-.book-container {
+#all-players {
     display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
 }
 
 #player {
     display: flex;
     flex-flow: column;
-    background-color: #FFC8DD;
+    background-color: #fff;
     border: 1px solid #CDB4DB;
     margin-right: 20px;
     padding: 0 20px 20px 20px;
+    width: 10rem;
+    min-height: 10rem;
+}
+
+#player a {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #2b2c2d;
+    color: #fff;
+    text-align: center;
 }
