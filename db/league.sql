@@ -5,7 +5,9 @@ CREATE TABLE players (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     points INT,
-    games_played INT
+    games_played INT,
+    wins INT,
+    losses INT
 );
 
 CREATE TABLE games (

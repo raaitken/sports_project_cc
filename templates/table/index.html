@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>League Table</h2>
+<section id="table-container">
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>Games Played</th>
+            <th>Points</th>
+        </tr>
+    {% for player in players %}
+    <tr>
+        <td>{{ player.name }}</td>
+        <td>{{ player.games_played }}</td>
+        <td>{{ player.points }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</section>
+{% endblock content %}

@@ -3,8 +3,8 @@ from models.player import Player
 from models.game import Game
 
 def save(player):
-    sql = "INSERT INTO players (name, points, games_played) VALUES (%s, %s, %s) RETURNING id"
-    values = [player.name, player.points, player.games_played]
+    sql = "INSERT INTO players (name, points, games_played, wins, losses) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    values = [player.name, player.points, player.games_played, player.wins, player.losses]
     results = run_sql(sql, values)
     id = results[0]['id']
     player.id = id
@@ -14,7 +14,7 @@ def select_all():
     sql = "SELECT * FROM players"
     results = run_sql(sql)
     for result in results:
-        player = Player(result['name'], result['points'], result['games_played'], result['id'])
+        player = Player(result['name'], result['points'], result['games_played'], result['wins'], result['losses'], result['id'])
         players.append(player)
     
     return players
@@ -27,7 +27,7 @@ def select(id):
 
     if results:
         result = results[0]
-        player = Player(result['name'], result['points'], result['games_played'], result['id'])
+        player = Player(result['name'], result['points'], result['games_played'], result['wins'], result['losses'], result['id'])
     
     return player
 
@@ -41,8 +41,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(player):
-    sql = "UPDATE players SET (name, points, games_played) = (%s, %s, %s) WHERE id = %s"
-    values = [player.name, player.points, player.games_played, player.id]
+    sql = "UPDATE players SET (name, points, games_played, wins, losses) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [player.name, player.points, player.games_played, player.wins, player.losses, player.id]
     run_sql(sql, values)
 
 def select_games_of_player(id):
@@ -57,3 +57,13 @@ def select_games_of_player(id):
         games.append(game)
 
     return games
+
+def select_table():
+    players = []
+    sql = "SELECT * FROM players ORDER BY points DESC, games_played ASC"
+    results = run_sql(sql)
+    for result in results:
+        player = Player(result['name'], result['points'], result['games_played'], result['wins'], result['losses'], result['id'])
+        players.append(player)
+    
+    return players
