@@ -6,3 +6,11 @@ class Game:
         self.p2_result = p2_result
         self.date = date
         self.id = id
+
+    def result(self):
+        if self.p1_result > self.p2_result:
+            self.player_one.win()
+            return self.player_one
+        elif self.p1_result < self.p2_result:
+            self.player_two.win()
+            return self.player_two

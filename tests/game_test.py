@@ -17,5 +17,5 @@ class TestGame(unittest.TestCase):
     def test_game_loss_gives_zero_points(self):
         expected_value = 0
         actual_value = self.punk.points
-        self.game1.result(self.tokido)
+        self.game1.result()
         self.assertEqual(expected_value, actual_value)

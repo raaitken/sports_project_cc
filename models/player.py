@@ -1,5 +1,8 @@
 class Player:
-    def __init__(self, name, id=None):
+    def __init__(self, name, points=0, id=None):
         self.name = name
         self.id = id
-        self.points = 0
+        self.points = points
+
+    def win(self):
+        self.points += 3

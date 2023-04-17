@@ -6,8 +6,8 @@ import repositories.player_repository as player_repository
 from models.game import Game
 import repositories.game_repository as game_repository
 
-player_repository.delete_all()
 game_repository.delete_all()
+player_repository.delete_all()
 
 player_1 = Player("Daigo Umehara")
 player_repository.save(player_1)
@@ -21,7 +21,7 @@ player_repository.save(player_3)
 player_4 = Player("Justin Wong")
 player_repository.save(player_4)
 
-game_1 = Game(player_4, player_1, 3, 1)
+game_1 = Game(player_4, player_1, 1, 3)
 game_repository.save(game_1)
 
 results = player_repository.select_all()

@@ -13,7 +13,7 @@ def select_all():
     sql = "SELECT * FROM players"
     results = run_sql(sql)
     for result in results:
-        player = Player(result['name'], result['id'])
+        player = Player(result['name'], result['points'], result['id'])
         players.append(player)
     
     return players
@@ -26,7 +26,7 @@ def select(id):
 
     if results:
         result = results[0]
-        player = Player(result['name'], result['id'])
+        player = Player(result['name'], result['points'], result['id'])
     
     return player
 
@@ -40,6 +40,6 @@ def delete(id):
     run_sql(sql, values)
 
 def update(player):
-    sql = "UPDATE players SET name = %s WHERE id = %s"
-    values = [player.name, player.id]
+    sql = "UPDATE players SET (name, points) = (%s, %s) WHERE id = %s"
+    values = [player.name, player.points, player.id]
     run_sql(sql, values)
