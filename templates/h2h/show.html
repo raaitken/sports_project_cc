@@ -1,19 +1,26 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
+<section class="head-to-head">
+  <h2>{{ p1.name }}</h2>
+  <h3>VS.</h3>
+  <h2>{{ p2.name }}</h2>
+</section>
 <div id="all-games">
-    {% for game in games %}
-    
-        <div id="game">
-        {% if game.p1_result > game.p2_result %}
-        <p><span class="winner">{{ game.player_one.name }}</span> {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>    
-        {% else %}
-        <p>{{ game.player_one.name }}{{game.p1_result}} - {{game.p2_result}} <span class="winner">{{game.player_two.name}}</span></p>    
-        {% endif %}
-        
-        </div>
-    
-    {% endfor %}
-</div>
+  {% for game in games %}
 
+  <div id="game">
+    {% if game.p1_result > game.p2_result %}
+    <p>
+      <span class="winner">{{ game.player_one.name }}</span> {{game.p1_result}}
+      - {{game.p2_result}} {{game.player_two.name}}
+    </p>
+    {% else %}
+    <p>
+      {{ game.player_one.name }}{{game.p1_result}} - {{game.p2_result}}
+      <span class="winner">{{game.player_two.name}}</span>
+    </p>
+    {% endif %}
+  </div>
+
+  {% endfor %}
+</div>
 {% endblock content %}

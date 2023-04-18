@@ -8,35 +8,36 @@
   <link href="{{ url_for('static', filename='game.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='player.css') }}" rel="stylesheet">
 </head>
-<body>
-<main id="grid-container">
-  <nav>
-    <ul class="nav">
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/players">Players</a>
-      </li>
-      <li>
-        <a href="/games">Games</a>
-      </li>
-      <li>
-        <a href="/table">Table</a>
-      </li>
-      <li>
-        <a href="/h2h">Head 2 Head</a>
-      </li>
-    </ul>
-  </nav>
-  <section id="content">
+<body id="grid-container">
+  <header>
+    <nav>
+      <ul class="nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/players">Players</a>
+        </li>
+        <li>
+          <a href="/games">Games</a>
+        </li>
+        <li>
+          <a href="/table">Table</a>
+        </li>
+        <li>
+          <a href="/h2h">Head 2 Head</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="content">
       {% block content %}
 
       {% endblock%}
-  </section>
   </main>
+  <footer>
+    Ross Aitken
+  </footer>
+  </section>
 </body>
-<footer>
-  Ross Aitken
-</footer>
 </html>

@@ -14,8 +14,10 @@ def head_to_head():
 # SHOW
 @headtohead_blueprint.route('/h2h/<p1_id>/<p2_id>')
 def show_head_to_head(p1_id, p2_id):
+    player_one = player_repository.select(p1_id)
+    player_two = player_repository.select(p2_id)
     games = game_repository.select_head_to_head(p1_id, p2_id)
-    return render_template('h2h/show.html', games=games)
+    return render_template('h2h/show.html', games=games, p1=player_one, p2=player_two)
 
 @headtohead_blueprint.route('/h2h', methods=['POST'])
 def post_h2h():
