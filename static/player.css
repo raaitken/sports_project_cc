@@ -1,0 +1,20 @@
+#won {
+    background-color: lightgreen;
+}
+
+#loss {
+    background-color: #b80f0a;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.player-games ul {
+    list-style: none;
+}
+
+#games-header {
+    margin-left: 2.5rem;
+}

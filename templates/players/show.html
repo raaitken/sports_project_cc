@@ -1,17 +1,32 @@
-<h2>{{ player.name }}</h2>
+{% extends 'base.html' %}
+{% block content %}
 
-<h3>Games</h3>
-<ul>
-    {% for game in games %}
-    <li>
-    {% if (game.player_one.name == player.name and game.p1_result > game.p2_result) or (game.player_two.name == player.name and game.p2_result > game.p1_result) %}
-    <div id="won" style="background-color:lightgreen">
-    {% else %}
-    <div id="loss" style="background-color:red">
-    {% endif %}
-    <p>{{ game.player_one.name }} {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>
+<div class="stats">
+    <div class="player-stats">
+        <h1>{{ player.name }}</h1>
+        <h2>Stats: </h2>
+        <h4>Games Played: {{ player.games_played }}</h4>
+        <h4>Games Won: {{ player.wins }}</h4>
+        <h4>Games Lost: {{ player.losses }}</h4>
+        <h4>Total Points: {{ player.points }}</h4>
     </div>
-    </li>
-    
-    {% endfor %}
-</ul>
+    <div class="player-games">
+<h3 id="games-header">Games</h3>
+<!-- <div class="player-games"> -->
+    <ul>
+        {% for game in games %}
+        <li>
+        {% if (game.player_one.name == player.name and game.p1_result > game.p2_result) or (game.player_two.name == player.name and game.p2_result > game.p1_result) %}
+        <div id="won">
+        {% else %}
+        <div id="loss">
+        {% endif %}
+        <p>{{ game.player_one.name }} {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>
+        </div>
+        </li>
+        
+        {% endfor %}
+    </ul>
+</div>
+</div>
+{% endblock content %}
