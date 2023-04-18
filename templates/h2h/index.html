@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/h2h" method="POST">
+    <div>
+        <label for="player_one">Player One:</label>
+        <select name="player_one_id" id="player_one">
+            {% for player in players %}
+            <option value="{{ player.id }}">
+                {{ player.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="player_two">Player Two:</label>
+        <select name="player_two_id" id="player_two">
+            {% for player in players %}
+            <option value="{{ player.id }}">
+                {{ player.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+{% endblock content %}

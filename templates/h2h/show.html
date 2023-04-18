@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="all-games">
+    {% for game in games %}
+    
+        <div id="game">
+        {% if game.p1_result > game.p2_result %}
+        <p><span class="winner">{{ game.player_one.name }}</span> {{game.p1_result}} - {{game.p2_result}} {{game.player_two.name}}</p>    
+        {% else %}
+        <p>{{ game.player_one.name }}{{game.p1_result}} - {{game.p2_result}} <span class="winner">{{game.player_two.name}}</span></p>    
+        {% endif %}
+        
+        </div>
+    
+    {% endfor %}
+</div>
+
+{% endblock content %}
