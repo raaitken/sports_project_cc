@@ -27,6 +27,12 @@ nav ul li {
     color: #fff
 }
 
+#index {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
 #grid-container {
     display: grid;
     grid-area: 
@@ -62,6 +68,10 @@ nav ul li {
 
 #player a {
     text-decoration: none;
+}
+
+#player a:hover {
+    text-decoration: underline;
 }
 
 .button {

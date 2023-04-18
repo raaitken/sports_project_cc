@@ -1,4 +1,5 @@
 from flask import Blueprint, Flask, redirect, render_template, request
+import pdb
 
 from models.player import Player
 import repositories.player_repository as player_repository
@@ -37,11 +38,12 @@ def edit_player(id):
     player = player_repository.select(id)
     return render_template('players/edit.html', player=player)
 
-# UPDATE
+# # UPDATE
 @players_blueprint.route('/players/<id>', methods=['POST'])
 def update_player(id):
     name = request.form['name']
-    player = Player(name, id)
+    player = player_repository.select(id)
+    player.name = name
     player_repository.update(player)
     return redirect('/players')
 
