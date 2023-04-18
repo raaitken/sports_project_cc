@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="player-container">
-    <header>
     <h2>Players</h2>
     <a href="/players/new"><button class="button">Add Player</button></a>
-    </header>
-    <main id="all-players">
+    <section id="all-players">
 
     {% for player in players %}
 
@@ -23,6 +21,6 @@
         </div>
 
     {% endfor %}
-    </main>
+    </section>
 </div>
 {% endblock %}

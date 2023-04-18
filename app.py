@@ -17,7 +17,8 @@ app.register_blueprint(headtohead_blueprint)
 def home():
     players = player_repository.select_table()
     games = game_repository.select_all()
-    return render_template('index.html', players=players, games=games)
+    last_five_games = games[-5:]
+    return render_template('index.html', players=players, games=games, recent_games=last_five_games)
 
 if __name__ == '__main__':
     app.run(debug=True)

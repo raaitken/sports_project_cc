@@ -46,7 +46,6 @@ nav ul li {
 
 #player-container {
     display: grid;
-    grid-template-rows: 2fr 6fr;
     margin: 10px;
 }
 
@@ -55,6 +54,7 @@ nav ul li {
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 0px;
 }
 
 .head-to-head {
@@ -95,6 +95,14 @@ nav ul li {
     background-color: #999;
 }
 
+#headtohead-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.h2h-player {
+    margin-left: 10px;
+}
 
 footer {
     background-color: #2b2c2d;
