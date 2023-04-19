@@ -5,7 +5,7 @@
       <label for="player_one">Player One:</label>
       <select name="player_one_id" id="player_one">
           {% for player in players %}
-          <option value="{{ player.id }}">
+          <option value="{{ player.id }}" {% if player.id == p1.id %} selected="selected" {% endif %}>
               {{ player.name }}
           </option>
           {% endfor %}
@@ -15,7 +15,7 @@
       <label for="player_two">Player Two:</label>
       <select name="player_two_id" id="player_two">
           {% for player in players %}
-          <option value="{{ player.id }}">
+          <option value="{{ player.id }}" {% if player.id == p2.id %} selected="selected" {% endif %}>
               {{ player.name }}
           </option>
           {% endfor %}
