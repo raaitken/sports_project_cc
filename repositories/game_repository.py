@@ -4,7 +4,7 @@ from models.player import Player
 import repositories.player_repository as player_repository
 
 def save(game):
-    sql = "INSERT INTO games (player_one_id, player_two_id, player_one_result, player_two_result) VALUES (%s, %s, %s, %s) RETURNING id, date"
+    sql = "INSERT INTO games (player_one_id, player_two_id, player_one_result, player_two_result) VALUES (%s, %s, %s, %s) RETURNING id"
     values = [game.player_one.id, game.player_two.id, game.p1_result, game.p2_result]
     results = run_sql(sql, values)
     id = results[0]['id']
